@@ -1,5 +1,4 @@
 #!groovy
-
 @Library('jenkinslib') _
 
 def tools = new org.devops.tools()
@@ -33,7 +32,7 @@ pipeline {
             }
         }
 
-        stage("01"){
+        stage("构建"){
             failFast true
             parallel {
         
@@ -44,7 +43,7 @@ pipeline {
                             script{
                                 println('应用打包')
                                 tools.PrintMes("应用打包",'green')
-                                mvnHome = tool "m2"
+                                mvnHome = tool "M2"
                                 println(mvnHome)
                                 
                                 sh "${mvnHome}/bin/mvn --version"
